@@ -3,7 +3,7 @@ type State = {
     isRequestInProgress: boolean,
   requestStep: RequestStep,
 }
-type RequestStep = string;
+type RequestStep =  "idle" | "start" | "pending" | "finished";
 type Action = { type: 'PENDING_REQUEST'}| { type: 'RESET_REQUEST'}| { type: 'FINISH_REQUEST' }|{ type: 'START_REQUEST' };
 
 

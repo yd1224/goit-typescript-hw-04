@@ -5,7 +5,7 @@ type MenuIds = "first" | "second" | "last";
 
 type Menu = { id: MenuIds; title: string };
 
-  type SelectedMenu = { id?: MenuIds};
+  type SelectedMenu = { id: MenuIds}|{};
 
 type MenuSelected = {
    selectedMenu: SelectedMenu
@@ -70,7 +70,7 @@ function MenuComponent({ menus }: PropsMenu) {
       {menus.map((menu) => (
         <div key={menu.id} onClick={() => onSelectedMenu({ id: menu.id })}>
           {menu.title}{" "}
-          {selectedMenu.id === menu.id ? "Selected" : "Not selected"}
+          {'id' in selectedMenu?( selectedMenu.id === menu.id ? "Selected" : "Not selected"):""}
         </div>
       ))}
     </>
